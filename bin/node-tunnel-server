@@ -1,0 +1,7 @@
+#!/usr/bin/env node
+
+var ReverseTunnelServer = require("tunnel").ReverseTunnelServer;
+
+var server = new ReverseTunnelServer();
+var parts = process.argv[2].split(":", 2);
+server.listen(parts[1], parts[0]);

@@ -1,0 +1,17 @@
+{
+  "name": "tunnel",
+  "description": "Simple TCP tunneling lib for node",
+  "version": "0.1.0",
+  "author": "Alessandro Decina <alessandro.d@gmail.com>",
+  "keywords": ["tunnel", "tcp"],
+  "dependencies": {
+    "express": "*"
+  },
+  "main": "./lib/node-tunnel",
+  "bin": {
+    "node-tunnel-client": "./bin/node-tunnel-client",
+    "node-tunnel-server": "./bin/node-tunnel-server"
+  },
+
+  "engines": { "node": ">= 0.4.6" }
+}
