@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 
-var ReverseTunnelClient = require("tunnel").ReverseTunnelClient;
+var ReverseTunnelClient = require("../lib/node-tunnel").ReverseTunnelClient;
 
 var client = new ReverseTunnelClient(process.argv[2], process.argv[3]);
 client.connect();

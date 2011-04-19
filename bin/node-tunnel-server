@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 
-var ReverseTunnelServer = require("tunnel").ReverseTunnelServer;
+var ReverseTunnelServer = require("../lib/node-tunnel").ReverseTunnelServer;
 
 var server = new ReverseTunnelServer();
 var parts = process.argv[2].split(":", 2);
