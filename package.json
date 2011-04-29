@@ -5,6 +5,12 @@
   "author": "Alessandro Decina <alessandro.d@gmail.com>",
   "keywords": ["tunnel", "tcp"],
   "dependencies": {
+    "optimist": "*",
+    "connect": "*",
+    "uuid-pure": "*",
+    "underscore": "*",
+    "pass": "*",
+    "request": "*"
   },
   "main": "./lib/node-tunnel",
   "bin": {

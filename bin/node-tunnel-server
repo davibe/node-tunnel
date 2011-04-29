@@ -1,7 +1,26 @@
 #!/usr/bin/env node
+// vim:ft=javascript
 
-var ReverseTunnelServer = require("../lib/node-tunnel").ReverseTunnelServer;
+var optimist = require("optimist");
+var ReverseTunnelServerManager = require("../lib/node-tunnel").ReverseTunnelServerManager;
 
-var server = new ReverseTunnelServer();
-var parts = process.argv[2].split(":", 2);
-server.listen(parts[1], parts[0]);
+var argv = optimist.argv;
+optimist.usage('usage: $0 --passwd PASSWD_FILE ' +
+    '--http-address [HOST:]PORT --tunnel-address HOST --proxy-address HOST');
+optimist.demand(['passwd', 'http-address']);
+optimist.default('tunnel-address', 'localhost:0');
+optimist.default('proxy-address', 'localhost:0');
+
+
+var http_address = argv['http-address'] + '';
+http_address = http_address.split(':', 2);
+if (http_address.length == 2) {
+  http_host = http_address[0];
+  http_port = http_address[1];
+} else {
+  http_host = 'localhost';
+  http_port = http_address[0];
+}
+
+var server = new ReverseTunnelServerManager(argv);
+server.listen(http_port, http_host);

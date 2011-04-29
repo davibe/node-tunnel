@@ -1,6 +1,13 @@
 #!/usr/bin/env node
-
+// vim:ft=javascript
+var optimist = require("optimist");
 var ReverseTunnelClient = require("../lib/node-tunnel").ReverseTunnelClient;
 
-var client = new ReverseTunnelClient(process.argv[2], process.argv[3]);
+optimist.usage('usage: $0 --server-http-address [HOST:]PORT ' +
+  '--proxy-address [HOST:]PORT');
+optimist.demand(['server-http-address', 'proxy-address', 'username', 'password']);
+var argv = optimist.argv;
+
+
+var client = new ReverseTunnelClient(argv);
 client.connect();
